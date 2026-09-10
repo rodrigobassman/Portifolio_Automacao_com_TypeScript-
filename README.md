@@ -1,2 +1,2 @@
-# Portifolio_Automacao_com_TypeScript-
-Portifólio para automação com testes em TypeScript
+# portifolio-automacao-com-typescript
+Aulas praticas de automação com playwrigh com type script 
