@@ -28,6 +28,6 @@ async function executarCT() {
     } finally {
         console.log('Passo final: fechando navegador e ligando dados.');
 
-        
+       
     }
 }
