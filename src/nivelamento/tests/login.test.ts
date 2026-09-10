@@ -2,7 +2,7 @@ import { test, expect, vi } from 'vitest';
 //SIMULAR LOGIN LENTO
 function loginLento(usuario: string): Promise<string> {
     return new Promise((resolve) => {
-        setTimeout(()) => {
+        setTimeout(() => {
             resolve(`Bem vindo, ${usuario}!`);
         }, 5000); // Simula um atraso de 5 segundos
     });
@@ -23,4 +23,7 @@ console.log('Teste realizado com sucesso!')
 
 // Desligando a máquina do tempo
 vi.useRealTimers();
+});
+
+
 
