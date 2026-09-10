@@ -25,7 +25,9 @@ async function executarCT() {
         console.log('SUCESSO! USUARIO LOGADO, TOKEN RECEBIDO: ${token}\n');
     } catch (erro) {
         console.error("FALHA NO TESTE ${erro}\n");
+    } finally {
         console.log('Passo final: fechando navegador e ligando dados.');
+
         
     }
 }
