@@ -7,7 +7,6 @@
     "test": "tests"
   },
   "scripts": {
-    "scripts": {
     "teste": "tsx src/nivelamento/pratica-assync.ts"
   },
   },
