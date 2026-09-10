@@ -15,3 +15,12 @@ const promessaLogin = loginLento('Biu Doido');
 // configurar avanço de 5 segundos
 vi.advanceTimersByTime(5000);
 
+const resultado = await promessaLogin;
+
+//verificar resultado
+expect(resultado).toBe('Bem vindo, Biu Doido!');
+console.log('Teste realizado com sucesso!')
+
+// Desligando a máquina do tempo
+vi.useRealTimers();
+
