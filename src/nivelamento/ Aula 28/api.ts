@@ -12,6 +12,10 @@ id: number;
 name: string;
 email: string;
 body: string;
-
 };
 
+//GET /posts
+async function listarPosts(){
+    
+    
+}
