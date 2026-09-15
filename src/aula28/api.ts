@@ -43,21 +43,7 @@ async function listarPosts() {
   
   // Corrigido para usar crases (``)
   const res = await fetch(`${BASE_URL}/posts/${id}`);
-  const dados: Post[] = await res.json();
-  
-  // Corrigido para usar crases e propriedades corretas
-  console.log(`status: ${res.status}`);
-  console.log(`titulo do post: ${id}:', dados.title);
-
-async function chamarReqs() {
-  listarPosts();
-  buscarPorId(3);
-}
-
-chamarReqs();
-  }
-
-const BASE_URL = 'https://jsonplaceholder.typicode.com';
+  const dadRL = 'https://jsonplaceholder.typicode.com';
 
 // Definir contratos de tipo
 type Post = {
@@ -100,6 +86,20 @@ async function chamarReqs() {
 }
 
 chamarReqs();
+os: Post[] = await res.json();
+  
+  // Corrigido para usar crases e propriedades corretas
+  console.log(`status: ${res.status}`);
+  console.log(`titulo do post: ${id}:', dados.title);
 
+async function chamarReqs() {
+  listarPosts();
+  buscarPorId(3);
+}
+
+chamarReqs();
+  }
+
+const BASE_U
 
 
