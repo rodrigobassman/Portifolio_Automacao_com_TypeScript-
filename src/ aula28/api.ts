@@ -8,7 +8,7 @@ type Post = {
   body: string;
 };
 
-type Comment = { // Recomendado usar PascalCase, mas 'comment' é aceito
+type Coment = { // Recomendado usar PascalCase, mas 'comment' é aceito
   postId: number;
   id: number;
   name: string;
