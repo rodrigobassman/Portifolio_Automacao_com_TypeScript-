@@ -14,5 +14,6 @@ test('Metodo POST para criar um novo post', async () => {
          title: 'Meu novo post',
          body: 'conteudo do meu novo post'
       })
+      
    });
 })
