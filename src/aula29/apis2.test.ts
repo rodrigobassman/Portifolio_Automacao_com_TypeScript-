@@ -45,14 +45,6 @@ test('Metodo PUT para atualizar um post existente', async () => {
    expect(dados.body).toBe('conteudo do post atualizado');
 });
 
-// Método DELETE para excluir um post existente
-test('Metodo DELETE para excluir um post existente', async () => {
-   const res = await fetch(`${BASE_URL}/posts/1`, {
-      method: 'DELETE'
-   });
-   // Testar status code
-   expect(res.status).toBe(200);
-});
 
 //Método PATCH para atualizar parcialmente um post existente
 test('Metodo PATCH para atualizar parcialmente um post existente', async () => {
@@ -71,3 +63,14 @@ test('Metodo PATCH para atualizar parcialmente um post existente', async () => {
    const dados = await res.json();
    expect(dados.title).toBe('Post atualizado parcialmente');
 });
+
+// Método DELETE para excluir um post existente
+test('Metodo DELETE para excluir um post existente', async () => {
+   const res = await fetch(`${BASE_URL}/posts/1`, {
+      method: 'DELETE'
+   });
+   // Testar status code
+   expect(res.status).toBe(200);
+});
+
+
