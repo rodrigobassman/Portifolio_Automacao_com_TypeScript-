@@ -22,4 +22,4 @@ test('Metodo POST para criar um novo post', async () => {
       const dados = await res.json();
       expect(dados.title).toBe('Meu novo post');
       expect(dados.body).toBe('conteudo do meu novo post');
-})
+});
