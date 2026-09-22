@@ -5,11 +5,24 @@ let loginPage: LoginPage;
 
 test.beforeEach(async ({ page }) => {
   loginPage = new LoginPage(page);
-  await loginPage.goto(); // Substitua pelo método que abre a página de login, se necessário
+  await loginPage.acessarsite();
 });
 
-test("teste de login", async ({ page }) => {
-  // Exemplo de uso
-  await loginPage.login("seu_usuario", "sua_senha");
-  await expect(page).toHaveURL(/dashboard/);
+test("login com sucesso", async ({ page }) => {
+  // Realiza o login com as credenciais
+  await loginPage.login("standard_user", "secret_sauce");
+  
+  // Validação: Garante que foi redirecionado para a página de produtos/inventário
+  await expect(page).toHaveURL(/.*inventory\.html/);
+  
+  // Validação opcional: Garante que o título da página ou o carrinho está visível
+  await expect(page.locator(".title")).toHaveText("Products");
+});
+
+test("login com senha incorreta", async ({ page }) => {
+  // Exemplo de teste negativo adicional para cobrir cenários de falha
+  await loginPage.login("standard_user", "senha_errada");
+  
+  // Validação: Garante que a mensagem de erro aparece
+  await expect(page.locator("[data-test='error']")).toBeVisible();
 });
