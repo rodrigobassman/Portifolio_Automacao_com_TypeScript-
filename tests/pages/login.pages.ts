@@ -11,5 +11,6 @@ export class LoginPage{
         await this.page.goto('https://www.saucedemo.com/')
         await expect(this.page).toHaveTitle("Swag Labs")
     }
-
+async login(email:string, password:string) {
+    
 }
