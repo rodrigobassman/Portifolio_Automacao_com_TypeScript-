@@ -46,12 +46,10 @@ Exemplo de um objeto JSON formatado e válido enviando dados de criação para a
 
 ## 4. Criação de Teste de Integração
 
-TypeScript
+//GET /posts/1/coment
+import{test, expect} from 'vitest';
 
-```typescript
-import { test, expect } from 'vitest';
-
-const BASE_URL = '[https://jsonplaceholder.typicode.com](https://jsonplaceholder.typicode.com)';
+const BASE_URL = 'https://jsonplaceholder.typicode.com';
 
 test('Metodo POST para criar um novo post', async () => {
    const res = await fetch(`${BASE_URL}/posts`, {
@@ -67,11 +65,11 @@ test('Metodo POST para criar um novo post', async () => {
       
    });
    // Testar status code
-   expect(res.status).toBe(201);
-   // Testar se o retorno é um objeto JSON
-   const dados = await res.json();
-   expect(dados.title).toBe('Meu novo post');
-   expect(dados.body).toBe('conteudo do meu novo post');
+      expect(res.status).toBe(201);
+      // Testar se o retorno é um objeto JSON
+      const dados = await res.json();
+      expect(dados.title).toBe('Meu novo post');
+      expect(dados.body).toBe('conteudo do meu novo post');
 });
 
 // Método PUT para atualizar um post existente
@@ -94,6 +92,7 @@ test('Metodo PUT para atualizar um post existente', async () => {
    expect(dados.title).toBe('Post atualizado');
    expect(dados.body).toBe('conteudo do post atualizado');
 });
+
 
 //Método PATCH para atualizar parcialmente um post existente
 test('Metodo PATCH para atualizar parcialmente um post existente', async () => {
