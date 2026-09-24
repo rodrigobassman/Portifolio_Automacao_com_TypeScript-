@@ -7,7 +7,7 @@
 | Método | Finalidade | Comportamento |
 | :--- | :--- | :--- |
 | **`PUT`** | Substituição / Atualização completa | Envia o objeto completo. |
-| **`PATCH`** | Modificação parcial | Envia apenas os campos que serão alterados. Os demais dados do recurso continuam intactos. |
+| **`PATCH`** | Modificação parcial | Envia apenas os campos que serão alterados. Os demais dados do recurso permanecem. |
 | **`DELETE`** | Remoção de recurso | Remove os campos indicados. |
 
 ---
@@ -15,15 +15,15 @@
 ## 2. Principais Status Codes e seus Significados
 
 ### Respostas de Sucesso (`2xx`)
-* **`200 OK`**: Requisição processada com sucesso (padrão em `GET`, `PUT`, `PATCH`).
-* **`201 Created`**: Recurso criado com sucesso (padrão em `POST`).
-* **`204 No Content`**: Requisição concluída com sucesso, mas sem corpo na resposta (comum em `DELETE`).
+* **`200 `**: Requisição processada com sucesso.
+* **`201 `**: Recurso criado com sucesso.
+* **`204 `**: Requisição concluída com sucesso, mas sem corpo na resposta.
 
 ### Erros do Cliente (`4xx`)
-* **`400 Bad Request`**: Requisição inválida (sintaxe JSON errada ou campos obrigatórios ausentes).
-* **`401 Unauthorized`**: Falha na autenticação (token ausente ou inválido).
+* **`400 Bad Request`**: Requisição inválida.
+* **`401 Unauthorized`**: Falha na autenticação.
 * **`403 Forbidden`**: Cliente autenticado, mas sem permissão para acessar o recurso.
-* **`404 Not Found`**: Endereço ou recurso não encontrado no servidor.
+* **`404 Not Found`**: Endereço não encontrado no servidor.
 
 ### Erros do Servidor (`5xx`)
 * **`500 Internal Server Error`**: Erro interno inesperado no servidor.
