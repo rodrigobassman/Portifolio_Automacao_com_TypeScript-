@@ -4,11 +4,11 @@
 
 ## 1. Diferença entre PUT, PATCH e DELETE
 
-| Método | Finalidade | Comportamento no Body | Idempotente? |
-| :--- | :--- | :--- | :--- |
-| **`PUT`** | Substituição / Atualização completa | Envia o objeto **completo**. Campos não enviados podem ser sobrescritos ou apagados no servidor. | **Sim** |
-| **`PATCH`** | Modificação parcial | Envia **apenas os campos** que serão alterados. Os demais dados continuam intactos. | **Não** (depende da regra de negócio) |
-| **`DELETE`** | Remoção de recurso | Geralmente **não envia body**. Remove o recurso indicado pela URL. | **Sim** |
+| Método | Finalidade | Comportamento |
+| :--- | :--- | :--- |
+| **`PUT`** | Substituição / Atualização completa | Envia o objeto completo. |
+| **`PATCH`** | Modificação parcial | Envia apenas os campos que serão alterados. Os demais dados do recurso continuam intactos. |
+| **`DELETE`** | Remoção de recurso | Remove os campos indicados. |
 
 ---
 
