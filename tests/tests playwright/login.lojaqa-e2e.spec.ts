@@ -28,3 +28,23 @@ test.describe('Ato 1 - Validar carregamento e visibilidade de elementos', () => 
 
 });
 
+
+test.describe('ATO 2 - Caminho feliz', ()=>{
+test('Validar acesso e redirecionar painel',async({page})=>{
+
+// Navegar até a página de login
+        await page.goto('${BASE_URL}/Login.html')
+
+        //preencher campos utilizando  fill()
+        await page.fill('#email', 'admin@system.com');
+         await page.fill('#password', 'AdminPassword123');
+        
+         //validar botao ativo
+         await expect(page.locator('#loginBtn')).toBeEnabled();
+
+         //acao de click
+         await page.click('#loginBtn'); 
+         
+}
+}
+})
