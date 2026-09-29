@@ -16,10 +16,14 @@ test.describe('Ato 1 - Validar carregamento e visibilidade de elementos', () => 
         // Navegar até a página de login
         await page.goto(BASE_URL);
         
-        // Validar visibilidade dos campos e do botão
+        // Validar campos
         await expect(page.locator('#email')).toBeVisible();
         await expect(page.locator('#password')).toBeVisible();
         await expect(page.locator('#loginBtn')).toBeVisible();
+
+        //verificar se btn esta desativado
+        await expect(page.locator('#loginBtn')).toBeDisabled();
+
     });
 
 });
