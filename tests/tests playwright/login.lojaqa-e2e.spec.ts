@@ -45,6 +45,8 @@ test('Validar acesso e redirecionar painel',async({page})=>{
          //acao de click
          await page.click('#loginBtn'); 
          
-}
-}
+    //validar o redirecionamento para a pagina/painel
+    await expect(page).toHaveURL(/painel\.html/);
+})
+
 })
