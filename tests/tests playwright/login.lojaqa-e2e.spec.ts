@@ -68,7 +68,7 @@ test('verificar botao login desativado quando email incorreto',
   test.describe('ATO 3 - Validar cadastro e login de diferentes perfis (Cliente e Logista)', () => {
 
   test('Validar formulario de cadastro e login de um novo Cliente', async ({ page }) => {
-    // 1. Ir para a página de cadastro (ajuste o arquivo se necessário, ex: cadastro.html)
+    // 1. Ir para a página de cadastro
     await page.goto(`${BASE_URL}/cadastro.html`);
 
     // 2. Preencher os campos do formulário de cadastro
@@ -76,11 +76,8 @@ test('verificar botao login desativado quando email incorreto',
     await page.fill('#email', USERS.cliente.email);
     await page.fill('#password', USERS.cliente.password);
     
-    // Se houver seleção de tipo de perfil:
-    // await page.selectOption('#tipoPerfil', USERS.cliente.perfil);
-
     // 3. Submeter o cadastro
-    await page.click('#cadastroBtn'); // Ajuste o ID do botão de cadastro se necessário
+    await page.click('#cadastroBtn');
 
     // 4. Fazer o login com o cliente recém-criado
     await page.goto(`${BASE_URL}/login.html`);
@@ -101,9 +98,6 @@ test('verificar botao login desativado quando email incorreto',
     await page.fill('#email', USERS.logista.email);
     await page.fill('#password', USERS.logista.password);
     
-    // Se houver seleção de tipo de perfil:
-    // await page.selectOption('#tipoPerfil', USERS.logista.perfil);
-
     // 3. Submeter o cadastro
     await page.click('#cadastroBtn');
 
@@ -119,6 +113,7 @@ test('verificar botao login desativado quando email incorreto',
 
 });
 
+// Corrigido de 'asyncm' para 'async'
 test('verificar botao login desativado quando email incorreto', async ({ page }) => {
   // navegar ate pagina de login
   await page.goto(`${BASE_URL}/login.html`);
@@ -130,3 +125,5 @@ test('verificar botao login desativado quando email incorreto', async ({ page })
   // Validar botao desativado
   await expect(page.locator('#loginBtn')).toBeDisabled();
 });
+
+// esse link aqui https://alisonmelo.github.io/tioalison-pe-t4-fap26/projetos-base/01-sistema-login/login.html
