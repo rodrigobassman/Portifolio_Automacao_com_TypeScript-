@@ -40,8 +40,8 @@ test.describe('ATO 2 - Caminho Feliz', ()=>{
     await page.click('#loginBtn');
     //validar o redirecioamento para a pagina /painel
     await expect(page).toHaveURL(/painel\.html/);
-  })
-})
+  });
+});
 
 test('verificar botao login desativado quando email incorreto',
     async ({page}) => {
@@ -55,5 +55,4 @@ test('verificar botao login desativado quando email incorreto',
   //Validar botao ativo
     await expect(page.locator('#loginBtn')).toBeDisabled();
 
-  })
-})
+  });
