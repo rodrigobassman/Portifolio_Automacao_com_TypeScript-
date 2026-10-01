@@ -54,8 +54,6 @@ test('verificar botao login desativado quando email incorreto',
     
   //Validar botao ativo
     await expect(page.locator('#loginBtn')).toBeDisabled();
-    // Acao de clique no btn
-    await page.click('#loginBtn');
 
   })
 })
