@@ -1,6 +1,6 @@
 import { test, expect } from '@playwright/test';
 
-const BASE_URL = 'https://alisonmelo.github.io/tioalison-pe-t4-fap26/projetos-base/01-sistema-login/login.html';
+const BASE_URL = 'https://alisonmelo.github.io/tioalison-pe-t4-fap26/projetos-base/01-sistema-login';
 
 test.describe('Ato 1 - Validar carregamento e visibilidade de elementos', () => {
 
@@ -24,4 +24,4 @@ test.describe('Ato 1 - Validar carregamento e visibilidade de elementos', () => 
         // verificar se btn esta desativado
         await expect(page.locator('#loginBtn')).toBeDisabled();
     });
-}); // <- Faltava esta chave aqui para fechar o test.describe
+}); 
