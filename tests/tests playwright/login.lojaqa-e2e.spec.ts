@@ -25,9 +25,9 @@ test.describe('ato 1 - validar carregamento e visibilidade de elementos', async 
   });
 
 });
-
 test.describe('ATO 2 - Caminho Feliz', ()=>{
   test('validar acesso e redicionar ao painel',async({page})=>{
+
     //navegar ate pagina de login
     await page.goto(`${BASE_URL}/login.html`)
     // preencher campoos utilizando o fill()
