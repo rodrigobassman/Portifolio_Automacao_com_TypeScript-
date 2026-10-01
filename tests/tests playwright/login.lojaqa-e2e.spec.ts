@@ -56,3 +56,11 @@ test('verificar botao login desativado quando email incorreto',
     await expect(page.locator('#loginBtn')).toBeDisabled();
 
   });
+
+  //Ato 3
+
+  //criar usuarios de clientes e logistas
+
+  //validar o formulario de cadastro
+  
+  //criar o login de cada um deles
