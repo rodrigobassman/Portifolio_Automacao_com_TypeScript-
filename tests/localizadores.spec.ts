@@ -48,3 +48,20 @@ await expect(page.getByText('todas as lojas',{ exact: true })).toBeVisible();
 await expect(page.getByText('Mouse Óptico Atlas', {exact: true})).toBeVisible();
 
 });
+
+//CT 03 - Validar informações na lista de lojas
+test('CT 03 - Validar informações na lista de lojas', async ({ page }) => {
+
+  //Acessar a aba de lojas
+  await page.getByRole('tab', { name: /Lojas/i }).click();
+
+  //Validar o título/nome da loja
+  await expect(page.getByText('Minha Tech', {exact: true}).first()).toBeVisible();
+
+  //Validar os dados da loja
+  await expect(page.getByText(/Responsável:/i).first()).toBeVisible();
+
+  //Validar a informação de produtos
+  await expect(page.getByText(/Produto\(s\)/i).first()).toBeVisible();
+
+});
