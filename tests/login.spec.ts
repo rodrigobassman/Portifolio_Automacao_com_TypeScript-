@@ -14,8 +14,8 @@ test("login com sucesso", async ({ page }) => {
   
   // Validação: Garante que foi redirecionado para a página de produtos/inventário
   await expect(page).toHaveURL(/.*inventory\.html/);
-  
-  // Validação opcional: Garante que o título da página ou o carrinho está visível
+
+ //validacao opcional: garante que o titulo da pagina ou o carrinho esta visivel
   await expect(page.locator(".title")).toHaveText("Products");
 });
 
