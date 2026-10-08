@@ -1,71 +1,77 @@
+
 import { test, expect } from '@playwright/test';
 
 const BASE_URL = 'https://alisonmelo.github.io/tioalison-pe-t4-fap26/projetos-base/01-sistema-login';
 
-test.describe('ato 1 - validar carregamento e visibilidade de elementos', async () => {
+// 1. Criando a massa de dados (USERS) para resolver o erro do Ato 3
+const USERS = {
+  cliente: {
+    nome: 'Cliente Teste',
+    email: `cliente_${Date.now()}@teste.com`, // Usando timestamp para evitar e-mails duplicados
+    password: 'UserPassword123'
+  },
+  logista: {
+    nome: 'Logista Teste',
+    email: `logista_${Date.now()}@teste.com`,
+    password: 'UserPassword123'
+  }
+};
+
+test.describe('Ato 1 - Validar carregamento e visibilidade de elementos', () => {
 
   test('Validar titulo e carregamento da pagina', async ({ page }) => {
-    //navegar ate pagina de login
-    await page.goto(`${BASE_URL}/login.html`)
-    //validar titulo
+    // Navegar ate pagina de login
+    await page.goto(`${BASE_URL}/login.html`);
+    // Validar titulo
     await expect(page).toHaveTitle(/LojaQA | Entrar/i);
   });
+
   test('Verificar exibicao dos campos do form de login', async ({ page }) => {
+    // Navegar ate pagina de login
+    await page.goto(`${BASE_URL}/login.html`);
 
-    //navegar ate pagina de login
-    await page.goto(`${BASE_URL}/login.html`)
-
-    //validar campos
+    // Validar campos
     await expect(page.locator('#email')).toBeVisible();
     await expect(page.locator('#password')).toBeVisible();
     await expect(page.locator('#loginBtn')).toBeVisible();
-    //verificar se btn esta desativado
+    // Verificar se btn esta desativado
     await expect(page.locator('#loginBtn')).toBeDisabled();
-
   });
 
 });
-test.describe('ATO 2 - Caminho Feliz', ()=>{
-  test('validar acesso e redicionar ao painel',async({page})=>{
 
-    //navegar ate pagina de login
-    await page.goto(`${BASE_URL}/login.html`)
-    // preencher campoos utilizando o fill()
-    await page.fill('#email','bassman@system.com');
+test.describe('Ato 2 - Caminho Feliz', () => {
+  
+  test('Validar acesso e redirecionar ao painel', async ({ page }) => {
+    // Navegar ate pagina de login
+    await page.goto(`${BASE_URL}/login.html`);
+    // Preencher campos utilizando o fill()
+    await page.fill('#email', 'bassman@system.com');
     await page.fill('#password', 'UserPassword666');
     
-    //Validar botao ativo
+    // Validar botao ativo
     await expect(page.locator('#loginBtn')).toBeEnabled();
     // Acao de clique no btn
     await page.click('#loginBtn');
-    //validar o redirecioamento para a pagina /painel
+    // Validar o redirecionamento para a pagina /painel
     await expect(page).toHaveURL(/painel\.html/);
   });
-});
 
-test('verificar botao login desativado quando email incorreto',
-    async ({page}) => {
-        //navegar ate pagina de login
-    await page.goto(`${BASE_URL}/login.html`)
+  test('Verificar botao login desativado quando email incorreto', async ({ page }) => {
+    // Navegar ate pagina de login
+    await page.goto(`${BASE_URL}/login.html`);
 
-     // preencher campoos utilizando o fill()
-    await page.fill('#email','email_sem_formato');
+    // Preencher campos utilizando o fill()
+    await page.fill('#email', 'email_sem_formato');
     await page.fill('#password', 'UserPassword669');
     
-  //Validar botao ativo
+    // Validar botao desativado
     await expect(page.locator('#loginBtn')).toBeDisabled();
-
   });
 
-  //Ato 3
+});
 
-  //criar usuarios de clientes e logistas
-
-  //validar o formulario de cadastro
-
-  //criar o login de cada um deles
-
-  test.describe('ATO 3 - Validar cadastro e login de diferentes perfis (Cliente e Logista)', () => {
+test.describe('Ato 3 - Validar cadastro e login de diferentes perfis (Cliente e Logista)', () => {
 
   test('Validar formulario de cadastro e login de um novo Cliente', async ({ page }) => {
     // 1. Ir para a página de cadastro
@@ -112,18 +118,3 @@ test('verificar botao login desativado quando email incorreto',
   });
 
 });
-
-// Corrigido de 'asyncm' para 'async'
-test('verificar botao login desativado quando email incorreto', async ({ page }) => {
-  // navegar ate pagina de login
-  await page.goto(`${BASE_URL}/login.html`);
-
-  // preencher campos utilizando o fill()
-  await page.fill('#email', 'email_sem_formato');
-  await page.fill('#password', 'UserPassword669');
-  
-  // Validar botao desativado
-  await expect(page.locator('#loginBtn')).toBeDisabled();
-});
-
-// esse link aqui https://alisonmelo.github.io/tioalison-pe-t4-fap26/projetos-base/01-sistema-login/login.html
