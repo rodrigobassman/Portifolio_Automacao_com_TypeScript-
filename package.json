@@ -8,6 +8,11 @@
   },
   "scripts": {
     "teste": "tsx src/nivelamento/pratica-assync.ts"
+   
+    "teste": "playwright test",
+    "aula25": "npx tsx src/Atividade_Aula25/aula25.ts"
+
+}
   },
   "repository": {
     "type": "git",
