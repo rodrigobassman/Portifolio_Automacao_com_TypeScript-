@@ -12,7 +12,7 @@ export const test = base.extend<authFixtures>({
         const loginPage = new LoginPage(page);
         await loginPage.goto();
         await use(loginPage);
-    }, // Adicionada a vírgula aqui
+    }, 
 
     // Entregando página logada
     loggedPage: async ({ page }, use) => {
