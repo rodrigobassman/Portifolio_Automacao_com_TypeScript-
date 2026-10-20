@@ -26,5 +26,27 @@ export class LoginPage {
 async goto() {
         await this.page.goto('https://alisonmelo.github.io/tioalison-pe-t4-fap26/projetos-base/01-sistema-login');
     }
-    
+
+  //Funçao do Login  
+  async Login(username: string, password: string) {
+        await this.emailInput.fill(username);
+        await this.passwordInput.fill(password);
+        await this.loginButton.click();
+    }
+
+    //Apenas preencher o campo de email
+async  fillEmail(email: string) {
+        await this.emailInput.fill(email);
+    }
+
+    //Apenas preencher o campo de senha
+    async fillPassword(password: string) {
+        await this.passwordInput.fill(password);
+    }
+
+    //Apenas clicar no botão de login
+    async clicksubmit() {
+        await this.loginButton.click();
+    }
+
 }
