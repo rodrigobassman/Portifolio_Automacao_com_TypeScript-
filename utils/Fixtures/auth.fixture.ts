@@ -1,6 +1,6 @@
 
 import { test as base, Page } from "@playwright/test";
-import {LoginPage} from ".pages/login.page";
+import {LoginPage} from ".tests/pages/loginPage";
 
 type authFixtures = {
     loginPage: LoginPage;
