@@ -15,4 +15,4 @@ async login(email:string, password:string) {
     await this.page.locator('#user-name').fill(email);
     await this.page.getByLabel('Password').fill(password);
     await this.page.getByRole('button',{name:'login-button'}).click();
-}
+}}
