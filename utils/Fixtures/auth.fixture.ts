@@ -1,6 +1,6 @@
 
 import { test as base, Page } from "@playwright/test";
-import {LoginPage} from ".tests/pages/loginPage";
+import {LoginPage} from "..tests/pages/loginPage";
 
 type authFixtures = {
     loginPage: LoginPage;
@@ -23,3 +23,5 @@ export const test = base.extend<authFixtures>({
         await use(page);
     }
 });
+
+export { expect } from "@playwright/test";
