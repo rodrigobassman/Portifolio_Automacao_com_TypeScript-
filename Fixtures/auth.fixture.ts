@@ -1,5 +1,5 @@
 import { test as base, expect, Page } from "@playwright/test";
-import { LoginPage } from "./pages/loginPage"; // Ajuste o caminho relativo conforme a localização deste arquivo
+import { LoginPage } from "../tests/pages/loginPage";
 
 type AuthFixtures = {
     loginPage: LoginPage;
