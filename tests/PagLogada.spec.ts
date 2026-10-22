@@ -1,4 +1,4 @@
-import {test, expect} from '../utils/Fixtures/auth.fixture';
+import {test, expect} from '../Fixtures/auth.fixture';
 
 test.describe('acesso area protegida - painel', async () => {
     test('Deve acessar o painel com usuario ja logado', async ({ loggedPage }) => {
@@ -14,7 +14,7 @@ test.describe('acesso area protegida - painel', async () => {
         const btSair = loggedPage.locator('#logoutButton');
         await expect(btSair).toBeVisible();
 
-        
+
 
     })
 })
