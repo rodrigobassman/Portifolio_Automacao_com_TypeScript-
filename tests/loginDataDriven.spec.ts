@@ -1,5 +1,5 @@
 import {test, expect} from '@playwright/test';
-import {LoginPage} from '../tests/pages/loginPage';
+import {LoginPage} from './pages/loginPage';
 import { ctsLogins } from '../tests/data/login.data';
 
 test.describe('Autenticação Data-drive de multiplos perfis com POM',
