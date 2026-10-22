@@ -9,7 +9,7 @@ test.describe('Autenticação Data-drive de multiplos perfis com POM',
             async ({page})=>{
                 const loginPage = new LoginPage(page);
                 await loginPage.goto();
-                await loginPage.login(cenarios.email, 
+                await loginPage.Login(cenarios.email, 
                     cenarios.senha);
 
                 if(cenarios.esperaSucesso){
