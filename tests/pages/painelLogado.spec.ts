@@ -1,4 +1,4 @@
-import {test, expect} from '../Fixtures/auth.fixture';
+import {test, expect} from '../../Fixtures/auth.fixture';
 
 test.describe('acesso area protegida - painel', ()=>{
     test('Deve acessar painel com usuario já logado', 
@@ -10,6 +10,6 @@ test.describe('acesso area protegida - painel', ()=>{
         await expect(h1Painel).toBeVisible();
         // Verificar preseça do bt loggout
         const btSair = loggedPage.locator('#logoutButton');
-        await expect(btSair).toBeVisible()
+        await expect(btSair).toBeVisible();
     });
 });
