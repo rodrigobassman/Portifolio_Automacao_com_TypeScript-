@@ -1,16 +1,25 @@
 import {test, expect} from '@playwright/test';
-import{loginPage} from '../tests/pages/loginPage';
-import {ctsLogins} from '../tests/data/login.data';
+import {LoginPage} from '../pages/loginPage';
+import { ctsLogins } from '../data/login.data';
 
-test.describe('autenticação dData-drive de múltiplos perfis com POM', () => {
- for (const cenario of ctsLogins) { test(`login com Perfil: ${cenario.perfil}`, async ({page}) => {
-    await loginPage.acessarPaginaLogin(page);
-    await loginPage.preencherFormularioLogin(page, cenario.email, cenario.senha);
-    await loginPage.submeterFormularioLogin(page);
-    if (cenario.esperaSucesso) {
-      await expect(page).toHaveURL(cenario.urlEsperada);
-    } else {
-      await expect(loginPage.ErrorMessage).toBeVisible();
-      await expect(page).toHaveURL(cenario.urlEsperada);
+test.describe('Autenticação Data-drive de multiplos perfis com POM',
+    ()=>{
+        for (const cenarios of ctsLogins){
+           test(`Login com Perfil: ${cenarios.perfil}`, 
+            async ({page})=>{
+                const loginPage = new LoginPage(page);
+                await loginPage.goto();
+                await loginPage.login(cenarios.email, 
+                    cenarios.senha);
+
+                if(cenarios.esperaSucesso){
+                    await expect(page).toHaveURL(cenarios.urlEsperada)
+                }else{
+                    await expect(loginPage.errorMessage).toBeVisible();
+                    await expect(page).toHaveURL(cenarios.urlEsperada)
+                }    
+            }) 
+        }
+        
     }
-})
+)
