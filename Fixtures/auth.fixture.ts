@@ -1,25 +1,26 @@
-import { test as base, expect, Page } from "@playwright/test";
-import { LoginPage } from "../tests/pages/loginPage";
+import {test as base, expect, Page} from "@playwright/test";
+import { LoginPage } from "../pages/loginPage";
 
-type AuthFixtures = {
+type authFixture={
     loginPage: LoginPage;
     loggedPage: Page;
 };
 
-export const test = base.extend<AuthFixtures>({
-    // Entregando a página de login já instanciada e navegada
-    loginPage: async ({ page }, use) => {
+export const test = base.extend<authFixture>({
+    //entregando a pagina ja estancianda no test
+    loginPage: async ({page}, use)=>{
         const loginPage = new LoginPage(page);
         await loginPage.goto();
         await use(loginPage);
     },
-    
-    // Entregando a página já logada (reaproveitando a fixture loginPage)
-    loggedPage: async ({ page, loginPage }, use) => {
-        await loginPage.login('admin@system.com', 'AdminPassword123');
+    //entregando pagina logada admin
+    loggedPage: async({page},use)=>{
+        const loginPage = new LoginPage(page);
+        await loginPage.goto();
+        await loginPage.login('admin@system.com','AdminPassword123');
         await page.waitForURL(/painel\.html/);
         await use(page);
-    },
+    }
 });
 
-export { expect } from "@playwright/test";
+export {expect} from "@playwright/test";
