@@ -1,39 +1,11 @@
 {
-  "name": "portifolio-automacao-com-typescript",
+  "name": "jogar-largo",
   "version": "1.0.0",
-  "description": "Aulas praticas de automação com playwright com typescript",
   "main": "index.js",
-  "directories": {
-    "test": "tests"
-  },
-  "scripts": {
-    "teste": "tsx src/nivelamento/pratica-assync.ts"
-   
-    "teste": "playwright test",
-    "aula25": "npx tsx src/Atividade_Aula25/aula25.ts"
-
-}
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/alisonmelo/portifolio-automacao-com-typescript.git"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "type": "commonjs",
-  "bugs": {
-    "url": "https://github.com/alisonmelo/portifolio-automacao-com-typescript/issues"
-  },
-  "homepage": "https://github.com/alisonmelo/portifolio-automacao-com-typescript#readme",
+  "license": "MIT",
   "devDependencies": {
     "@playwright/test": "^1.63.0",
-    "@types/node": "^26.6.2",
-    "tsx": "^4.23.13",
-    "typescript": "^5.3.3",
-    "vitest": "^5.0.1"
+    "@types/node": "^26.6.2"
   },
-  "allowScripts": {
-    "esbuild@0.28.2": true
-  }
+  "scripts": {}
 }
